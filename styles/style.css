@@ -1,0 +1,245 @@
+/* MOBILE */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    color: #222222;
+    /*Manter o footer no final da página*/
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    /*Manter o footer no final da página*/
+    flex: 1;
+}
+
+    /* Manter as imagens responsivas */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* NAV */
+
+.wrapper-links {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: #CCF6EF;
+    justify-content: space-between;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+#logo-lauren-img {
+    width: 140px;
+}
+
+.menu-toggle {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    background: none;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+#links {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    order: 2;
+    gap: 10px;
+    background: #CCF6EF;
+}
+
+#links.active {
+    display: flex;
+}
+
+.link {
+    text-decoration: none;
+    color: #25383E;
+    font-weight: bold;
+    padding: 8px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+/* PROFILE */
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin: 20px;
+    text-align: center;
+}
+
+#foto-lauren-img {
+    width: 130px;
+    height: 130px;
+    border: 2px solid #222222;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+#nome {
+    font-size: 26px;
+    margin: 0;
+}
+
+/* WHATSAPP */
+
+.whatsapp-contato {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: #c8f7c5;
+    border: 2px solid #2e7d32;
+    border-radius: 30px;
+    color: #1b5e20;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+#whatsapp-icon-img {
+    width: 26px;
+    height: 26px;
+}
+
+/* APRESENTAÇÃO */
+
+.apresentacao {
+    margin: 20px;
+    font-size: 14px;
+    text-align: justify;
+}
+
+/* BLOCOS */
+
+.banner {
+    padding: 0 20px;
+}
+
+.blocos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.bloco {
+    width: 100%;
+    max-width: 320px;
+    padding: 6px;
+    border: 2px solid #CCF6EF;
+    border-radius: 14px;
+    text-align: center;
+}
+
+.bloco-img {
+    border-radius: 10px;
+}
+
+.descricao {
+    font-size: 13px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #CCF6EF;
+    padding: 12px 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-itens {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #222222;
+    font-weight: bold;
+}
+
+.contact-itens:hover {
+    color: #555555;
+}
+
+/* DESKTOP */
+@media (min-width: 768px) {
+
+    .wrapper-links {
+        flex-wrap: nowrap;
+        padding: 8px 14px;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    #links {
+        display: flex;
+        flex-direction: row;
+        margin-left: auto;
+        gap: 40px;
+        background: none;
+    }
+
+    .link {
+        padding: 8px 14px;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+    }
+
+    .link:hover {
+        border: 2px solid #555555;
+        color: #555555;
+    }
+
+    .profile {
+        flex-direction: row;
+        text-align: left;
+        gap: 30px;
+    }
+
+    #nome {
+        font-size: 34px;
+    }
+
+    .blocos {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .bloco {
+        max-width: 500px;
+    }
+
+    ul {
+        flex-direction: row;
+        gap: 50px;
+    }
+}
