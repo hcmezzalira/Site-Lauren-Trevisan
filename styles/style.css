@@ -445,3 +445,24 @@ ul {
 .course-image-wrapper:hover .course-image {
     opacity: 0.3;
 }
+
+@media (max-width: 767px) {
+    .course-overlay h3 {
+        font-size: 16px;
+        margin: 12px 0 12px 0;
+    }
+
+    .course-list {
+        font-size: 12px;
+        gap: 6px;
+    }
+
+    .course-image-wrapper {
+        max-height: fit-content;
+    }
+
+    .course-item {
+        max-width: 100%;
+        max-height: fit-content;
+    }
+}
