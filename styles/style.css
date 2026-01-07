@@ -238,6 +238,11 @@ ul {
         flex-direction: row;
         gap: 50px;
     }
+
+    /* Fixed, larger image height for course cards on desktop */
+    .course-image-wrapper {
+        height: 280px;
+    }
 }
 
 /* PHOTOS PAGE */
@@ -354,4 +359,89 @@ ul {
 
 .zoom-controls button:active {
     transform: translateY(1px);
+}
+
+/* COURSES PAGE */
+
+.courses-section {
+    padding: 24px 24px 20px 24px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.courses-section h2 {
+    margin: 0 0 16px 0;
+    font-size: 28px;
+    text-align: center;
+}
+
+.courses-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.course-item {
+    background: #F9F9F9;
+    border: 2px solid #DDDDDD;
+    border-radius: 12px;
+    padding: 0 16px 16px 16px;
+    max-width: 360px;
+    text-align: center;
+}
+
+.course-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    display: block;
+    max-width: 360px;
+}
+
+.course-image {
+    width: fit-content;
+    height: fit-content;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.course-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 8px;
+    color: white;
+}
+
+.course-overlay h3 {
+    font-size: 30px;
+    margin: 16px 0 16px 0;
+    font-weight: bold;
+}
+
+.course-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+    gap: 14px;
+}
+
+.course-image-wrapper:hover .course-overlay {
+    opacity: 1;
+}
+
+.course-image-wrapper:hover .course-image {
+    opacity: 0.3;
 }
