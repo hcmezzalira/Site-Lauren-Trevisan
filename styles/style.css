@@ -12,6 +12,15 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    /* Melhor renderização em mobile */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Touch-friendly links e botões */
+a, button {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    touch-action: manipulation;
 }
 
 main {
@@ -45,11 +54,18 @@ img {
 .menu-toggle {
     position: absolute;
     right: 10px;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
     background: none;
     border: none;
     font-size: 32px;
     cursor: pointer;
+    /* Touch target mínimo de 44x44px para mobile */
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #links {
@@ -70,9 +86,13 @@ img {
     text-decoration: none;
     color: #25383E;
     font-weight: bold;
-    padding: 8px;
+    /* Touch target aumentado para mobile */
+    padding: 12px 16px;
     text-align: center;
     border-radius: 20px;
+    /* Prevenir seleção acidental de texto */
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 /* PROFILE */
@@ -105,7 +125,8 @@ img {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 10px 14px;
+    /* Touch target maior para mobile */
+    padding: 12px 18px;
     background: #c8f7c5;
     border: 2px solid #2e7d32;
     border-radius: 30px;
@@ -113,6 +134,11 @@ img {
     font-weight: bold;
     text-decoration: none;
     font-size: 14px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsapp-contato:active {
+    transform: scale(0.98);
 }
 
 #whatsapp-icon-img {
@@ -124,8 +150,13 @@ img {
 
 .apresentacao {
     margin: 20px;
-    font-size: 14px;
-    text-align: justify;
+    padding: 16px;
+    font-size: 15px;
+    /* Text-align: justify pode dificultar leitura em telas pequenas */
+    text-align: left;
+    line-height: 1.6;
+    background: #f9f9f9;
+    border-radius: 10px;
 }
 
 /* BLOCOS */
@@ -155,7 +186,7 @@ img {
 
 footer {
     background: #CCF6EF;
-    padding: 12px 0;
+    padding: 20px 0;
 }
 
 ul {
@@ -164,7 +195,7 @@ ul {
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
     align-items: center;
     justify-content: center;
 }
@@ -176,10 +207,19 @@ ul {
     text-decoration: none;
     color: #222222;
     font-weight: bold;
+    /* Touch target adequado */
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
 }
 
 .contact-itens:hover {
     color: #555555;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.contact-itens:active {
+    transform: scale(0.98);
 }
 
 /* DESKTOP */
@@ -203,7 +243,7 @@ ul {
     }
 
     .link {
-        padding: 8px 14px;
+        padding: 10px 16px;
         border: 2px solid transparent;
         transition: all 0.3s ease;
     }
@@ -211,6 +251,11 @@ ul {
     .link:hover {
         border: 2px solid #555555;
         color: #555555;
+    }
+
+    .apresentacao {
+        text-align: justify;
+        font-size: 16px;
     }
 
     .profile {
@@ -261,7 +306,8 @@ ul {
 
 .blocos-photo {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    /* Melhor responsividade para telas pequenas */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
     place-items: center;
     gap: 18px;
     padding: 8px;
@@ -297,11 +343,14 @@ ul {
 .photo-overlay {
     position: fixed;
     inset: 0;
-    background: #444444;
+    background: rgba(0, 0, 0, 0.95);
     display: none;
     align-items: center;
     justify-content: center;
     padding: 20px;
+    z-index: 9999;
+    /* Prevenir scroll do body quando overlay está ativo */
+    overflow: hidden;
 }
 
 .photo-overlay.active {
@@ -351,34 +400,39 @@ ul {
     background: #FFFFFF;
     border: 1px solid #DDDDDD;
     border-radius: 8px;
-    padding: 8px 12px;
+    /* Touch target maior */
+    padding: 12px 16px;
     cursor: pointer;
     font-weight: bold;
     z-index: 10;
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 16px;
 }
 
 .zoom-controls button:active {
-    transform: translateY(1px);
+    transform: scale(0.95);
+    background: #f0f0f0;
 }
 
 /* COURSES PAGE */
 
 .courses-section {
-    padding: 24px 24px 20px 24px;
+    padding: 16px;
     max-width: 1600px;
     margin: 0 auto;
 }
 
 .courses-section h2 {
     margin: 0 0 16px 0;
-    font-size: 28px;
+    font-size: 22px;
     text-align: center;
 }
 
 .courses-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 12px;
     justify-content: center;
 }
 
@@ -386,7 +440,8 @@ ul {
     background: #F9F9F9;
     border: 2px solid #DDDDDD;
     border-radius: 12px;
-    padding: 0 16px 16px 16px;
+    padding: 0 12px 12px 12px;
+    width: 100%;
     max-width: 360px;
     text-align: center;
 }
@@ -396,12 +451,12 @@ ul {
     overflow: hidden;
     border-radius: 8px;
     display: block;
-    max-width: 360px;
+    width: 100%;
 }
 
 .course-image {
-    width: fit-content;
-    height: fit-content;
+    width: 100%;
+    height: auto;
     object-fit: cover;
     object-position: center;
     border-radius: 8px;
@@ -423,8 +478,8 @@ ul {
 }
 
 .course-overlay h3 {
-    font-size: 30px;
-    margin: 16px 0 16px 0;
+    font-size: 24px;
+    margin: 12px 0;
     font-weight: bold;
 }
 
@@ -434,14 +489,17 @@ ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    font-size: 20px;
-    gap: 14px;
+    font-size: 16px;
+    gap: 10px;
 }
 
+/* Em mobile, o overlay aparece ao tocar */
+.course-image-wrapper:active .course-overlay,
 .course-image-wrapper:hover .course-overlay {
     opacity: 1;
 }
 
+.course-image-wrapper:active .course-image,
 .course-image-wrapper:hover .course-image {
     opacity: 0.3;
 }
@@ -464,5 +522,63 @@ ul {
     .course-item {
         max-width: 100%;
         max-height: fit-content;
+    }
+}
+
+/* Otimizações para telas muito pequenas */
+@media (max-width: 360px) {
+    #logo-lauren-img {
+        width: 100px;
+    }
+
+    .menu-toggle {
+        font-size: 28px;
+    }
+
+    #nome {
+        font-size: 22px;
+    }
+
+    .apresentacao {
+        margin: 15px;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .whatsapp-contato span {
+        font-size: 13px;
+    }
+
+    .photos-section h2 {
+        font-size: 22px;
+    }
+
+    .contact-itens {
+        font-size: 14px;
+    }
+}
+
+/* Orientação landscape em mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .profile {
+        margin: 10px;
+    }
+
+    #foto-lauren-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .apresentacao {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    footer {
+        padding: 15px 0;
+    }
+
+    ul {
+        gap: 15px;
     }
 }
